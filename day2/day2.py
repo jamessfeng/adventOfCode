@@ -12,15 +12,27 @@ ans = 0
 #         return 6
 #     return 0
 
-print(points.get("X"))
+# with open("input.txt") as file:
+#     for line in file:
+#         split = line.rstrip().split(" ")
+#         oppo = split[0]
+#         me = split[1]
+#         # ans += calc(oppo, me)
+#         ans += matrix[ord(oppo)-ord("A")][ord(me)-ord("X")]
+#         ans += points.get(me)
+
+# print(ans)
+winPoints = {"X": 0, "Y": 3, "Z": 6}
+matrix2 = [["Z","X","Y"],["X","Y","Z"],["Y","Z","X"]]
 with open("input.txt") as file:
     for line in file:
         split = line.rstrip().split(" ")
         oppo = split[0]
         me = split[1]
-        # ans += calc(oppo, me)
-        ans += matrix[ord(oppo)-ord("A")][ord(me)-ord("X")]
-        ans += points.get(me)
-
-print(ans)
+        ans += winPoints.get(me)
+        ans += points.get(matrix2[ord(oppo)-ord("A")][ord(me)-ord("X")])
+print (ans)
+# X lose
+# Y Draw
+# Z Win
 
